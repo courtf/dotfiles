@@ -32,7 +32,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/go/bin
 
 # android
-export PATH=$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools
+export PATH=$PATH:$HOME/Library/Android/Sdk/tools:$HOME/Library/Android/Sdk/platform-tools
 alias astudio=~/android-studio/bin/studio.sh
 
 # Set name of the theme to load.

@@ -25,14 +25,17 @@ install_go() {
         gotag="$deftag"
     fi
 
+    mkdir ~/go
     # go1.4 is required to compile the compilers/assemblers/linkers for >=go1.5
-    mkdir ~/go1.4temp
+    mkdir ~/go1.9temp
 
-    tarfile='go1.4.3.linux-amd64.tar.gz'
-    curl https://storage.googleapis.com/golang/"$tarfile" > "$tarfile" &&
-    tar -C ~/go1.4temp -xzf "$tarfile" &&
-    rm -rf ~/go1.4 &&
-    mv ~/go1.4temp/go ~/go1.4 && rm -rf ~/go1.4temp && rm "$tarfile"
+    tarfile="go1.9.darwin-amd64.tar.gz"
+    curl https://dl.google.com/go/"$tarfile" > "$tarfile" &&
+    tar -C ~/go1.9temp -xzf "$tarfile" &&
+    rm -rf ~/go1.9 &&
+    mv ~/go1.9temp/go ~/go1.9 && rm -rf ~/go1.9temp && rm "$tarfile"
+
+    export GOROOT_BOOTSTRAP=$HOME/go1.9
 
     # clone Go repo
     git clone https://go.googlesource.com/go ~/go &&
